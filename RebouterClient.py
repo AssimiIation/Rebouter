@@ -17,7 +17,7 @@ class MessageBox:
 
 def check_connection():
     global server_ip
-    msg_window.display_message("Checking connection to server...")
+    msg_window.display_message("Checking connection to Rebouter server...")
     for _ in range(5):
         status = os.system(f"timeout 1.5 ping -c 1 {server_ip} ")
         if status == 0:
@@ -31,12 +31,9 @@ def check_connection():
 def reboot_router():
     reboot_button.config(state='disabled')
     try:
-        msg_window.display_message("Rebooting...", True)
+        msg_window.display_message("Rebooting router...", True)
         result = client.reboot_router(10)
-        if result == "OK":
-            msg_window.display_message("Router rebooted successfully!", True)
-        else:
-            msg_window.display_message("Error rebooting router. Please try again", True)
+        msg_window.display_message(result, True)
         reboot_button.config(state='normal')
     except xmlrpc.client.Fault as error:
         msg_window.display_message(f"Call to server failed with xml-rpc fault: {error}", True)
@@ -54,7 +51,7 @@ server_ip = "192.168.1.163"
 server_port = '6870'
 
 root = Tk()
-root.title("LAN Router Reboot")
+root.title("Rebouter - the LAN router rebooterS")
 root.resizable(False, False)
 root.geometry("520x460")
 
