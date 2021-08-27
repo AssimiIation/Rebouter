@@ -28,3 +28,15 @@ wire going **to** the router to the NC port on the relay module.
 a closed circuit (ie. plugging it in provides constant power to the device). Using the NC port ensures
 identical behavior and that the circuit is opened/disconnected when the relay is triggered. The 
 opposite is true when NO port is used.
+
+## Software
+**Configure Server**  
+* Ensure the ip address in the **server** definition in RebouterServer.py matches the ip address of the Pi you are configuring
+* The **server** definition port can be any available port so long as the same port is used in RebouterClient.py
+* Set RebouterServer.py up as a service to run on the Pi. I used [this guide](https://github.com/torfsen/python-systemd-tutorial) to do so.  
+**Configure Client**
+* Ensure **server_ip** and **server_port** match what was entered for the server in the previous steps
+
+## Using Rebouter
+After launching RebouterClient.py the script will first verify connection to the server. 
+Once the connection is verified, press the reboot button to reboot the router. Simple!
