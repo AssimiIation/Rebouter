@@ -1,5 +1,5 @@
 
-# Lan Router Reboot
+# Rebouter (The LAN router rebooter)
 
 I started this project after some annoyance in repeatedly running to a far corner 
 room in my home to unplug/replug my modem to solve various internet connectivity issues.
